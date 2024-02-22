@@ -1,0 +1,34 @@
+syntax on                 " Habilita el resaltado de sintaxis
+set number                " Muestra números de línea
+""set relativenumber        " Muestra números de línea relativos para una fácil navegación
+set autoindent            " Habilita la autoindentación
+set tabstop=4             " Establece el ancho del tabulador a 4 espacios
+set shiftwidth=4          " Establece el ancho de la indentación al usar >>, <<, etc.
+set expandtab             " Convierte los tabuladores en espacios
+set smartindent           " Indentación inteligente
+set cursorline            " Resalta la línea actual
+set showmatch             " Muestra la coincidencia de paréntesis y otros caracteres
+set incsearch             " Búsqueda incremental
+set hlsearch              " Resalta las coincidencias de búsqueda
+filetype plugin indent on " Habilita la detección de tipos de archivo
+set background=dark       " Establece el fondo a oscuro (cambia a 'light' si prefieres)
+colorscheme desert        " Establece el esquema de colores (cambia según preferencia)
+
+
+" :: NERDTree Zone ::
+" Abrir NERDTree automáticamente al iniciar Vim
+autocmd vimenter * NERDTree
+
+" Cerrar Vim si NERDTree es la última ventana
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
+" :: vim-plug Zone ::
+call plug#begin('~/.vim/plugged')
+
+" Aquí puedes listar los plugins que deseas instalar
+Plug 'preservim/nerdtree'   " Navegador de archivos
+"Plug 'tpope/vim-fugitive'   " Integración con Git
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Buscador fuzzy
+
+call plug#end()
